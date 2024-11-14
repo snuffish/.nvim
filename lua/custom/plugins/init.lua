@@ -1,7 +1,5 @@
 local empty_line_group = vim.api.nvim_create_augroup('EmptyLine', { clear = true })
 
-print("SDSDSDS")
-
 return {
     vim.keymap.set('n', '<C-p>', builtin.find_files, { desc = '[S]earch [F]iles' }),
     vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' }),
