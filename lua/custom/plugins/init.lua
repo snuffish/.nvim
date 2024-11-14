@@ -3,8 +3,11 @@ local empty_line_group = vim.api.nvim_create_augroup('EmptyLine', { clear = true
 
 return {
     vim.keymap.set('n', '<C-p>', builtin.find_files, { desc = '[S]earch [F]iles' }),
+    vim.keymap.set('n', '<Leader>p', builtin.find_files),
+
     vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' }),
     vim.keymap.set('n', '<C-_>', builtin.live_grep, { desc = '[S]earch by [G]rep' }),
+    vim.keymap.set('n', '<Leader>/', builtin.live_grep),
 
     vim.keymap.set('n', '<leader>so', ':source $MYVIMRC', { silent = true }),
     vim.keymap.set('n', '<A-Right>', '<End>', { noremap = true }),
