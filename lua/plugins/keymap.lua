@@ -54,4 +54,7 @@ return {
   vim.keymap.set('n', '<leader><Down>', '<C-w><Down>', { noremap = true }),
   vim.keymap.set('n', '<leader><Left>', '<C-w><Left>', { noremap = true }),
   vim.keymap.set('n', '<leader><Right>', '<C-w><Right>', { noremap = true }),
+
+  vim.keymap.set('n', '<leader><leader><Down>', '<C-w>s', { noremap = true }),
+  vim.keymap.set('n', '<leader><leader><Right>', '<C-w>v', { noremap = true }),
 }
