@@ -1,4 +1,3 @@
-
 local builtin = require 'telescope.builtin'
 
 local function set(modes, maps, action, opts)
@@ -34,6 +33,7 @@ return {
 
   set("n", "<C-c><C-c>", "yy", { noremap = true, desc = "Copy" }),
   set("n", "<C-v>", "p", { noremap = true, desc = "Paste" }),
+  set('v', '<C-c>', 'y', { noremap = true, desc = 'Copy' }),
 
   set({ 'n', 'i' }, '<C-s>', '<cmd>w<CR><Esc>', { silent = true }),
 
@@ -59,16 +59,33 @@ return {
   set('n', '<leader><Down>', '<C-w><Down>', { noremap = true, desc = 'Goto Window down' }),
   set('n', '<leader><Left>', '<C-w><Left>', { noremap = true, desc = 'Goto Window left' }),
   set('n', '<leader><Right>', '<C-w><Right>', { noremap = true, desc = 'Goto Window right' }),
-  
+
   set('n', '<leader><leader>m', '<leader>sm', { noremap = true, desc = 'Toggle maximize window' }),
   set('n', '<leader><leader><Down>', '<C-w>s', { noremap = true, desc = 'Split window down/horizontal' }),
   set('n', '<leader><leader><Right>', '<C-w>v', { noremap = true, desc = 'Split window right/vertical' }),
 
   -- Font size adjustment
-  set('n', '<C-=>', '<cmd>lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>', { desc = 'Increase font size' }),
-  set('n', '<C-->', '<cmd>lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<CR>', { desc = 'Decrease font size' }),
+  set('n', '<C-=>', '<cmd>lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>',
+    { desc = 'Increase font size' }),
+  set('n', '<C-->', '<cmd>lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<CR>',
+    { desc = 'Decrease font size' }),
   set('n', '<C-0>', '<cmd>lua vim.g.neovide_scale_factor = 1.0<CR>', { desc = 'Reset font size' }),
 
   set('n', '<CR>', 'o', { desc = 'New line in insert mode' }),
   set('n', 's<CR>', 'i', { desc = 'New line above in insert mode' }),
+
+  -- Visual mode selections with Shift + Arrow keys
+  set('n', '<S-Up>', 'v<Up>', { desc = 'Select line above' }),
+  set('n', '<S-Down>', 'v<Down>', { desc = 'Select line below' }),
+  set('n', '<S-Left>', 'v<Left>', { desc = 'Select character left' }),
+  set('n', '<S-Right>', 'v<Right>', { desc = 'Select character right' }),
+
+  -- Continue visual mode selection with Shift + Arrow keys
+  set('v', '<S-Up>', '<Up>', { desc = 'Extend selection up' }),
+  set('v', '<S-Down>', '<Down>', { desc = 'Extend selection down' }),
+  set('v', '<S-Left>', '<Left>', { desc = 'Extend selection left' }),
+  set('v', '<S-Right>', '<Right>', { desc = 'Extend selection right' }),
+
+  -- Visual line mode for whole line selection
+  set('n', '<S-Home>', 'V', { desc = 'Enter line selection mode' }),
 }
