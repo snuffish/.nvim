@@ -11,7 +11,17 @@ local function set(modes, maps, action, opts)
   end
 end
 
+local clear_cmd_line = function()
+  vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<C-c>', true, true, true), 'n')
+  vim.cmd('echo ""')
+end
+
 return {
+  set({ 'i', 'v', 'c' }, 'qq', clear_cmd_line, { noremap = true, desc = 'Exit mode' }),
+  set({ 'n', 'i', 'v' }, '..', '<Esc>:', { noremap = true, desc = 'Enter command mode' }),
+  set('c', '..', clear_cmd_line, { noremap = true, desc = 'Exit command mode' }),
+
+  set({ 'n', 'i' }, 'L', '<cmd>Lazy<CR>', { desc = 'Open Lazy' }),
   set({ 'n', 'i' }, '<C-x>', '<Esc>:', { silent = true }),
 
   set('n', { '<leader>sf', '<c-p>' }, builtin.find_files, { desc = '[S]earch [F]iles' }),
