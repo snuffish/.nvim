@@ -18,6 +18,7 @@ end
 
 return {
   set({ 'i', 'v', 'c' }, 'qq', clear_cmd_line, { noremap = true, desc = 'Exit mode' }),
+  set({ 'n', 'i' }, 'QQ', '<cmd>q<CR>', { noremap = true, desc = 'Quit' }),
   set({ 'n', 'i', 'v' }, '..', '<Esc>:', { noremap = true, desc = 'Enter command mode' }),
   set('c', '..', clear_cmd_line, { noremap = true, desc = 'Exit command mode' }),
 
