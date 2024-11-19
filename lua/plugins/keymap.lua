@@ -53,7 +53,7 @@ return {
 
   -- Select all
   set('n', '<C-a>', 'gg<S-v>G', { desc = 'Select all' }),
-
+ 
   -- Window navigation
   set('n', '<leader><Up>', '<C-w><Up>', { noremap = true, desc = 'Goto Window up' }),
   set('n', '<leader><Down>', '<C-w><Down>', { noremap = true, desc = 'Goto Window down' }),
