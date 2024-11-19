@@ -21,8 +21,10 @@ return {
   set({ 'n', 'i', 'v' }, '..', '<Esc>:', { noremap = true, desc = 'Enter command mode' }),
   set('c', '..', clear_cmd_line, { noremap = true, desc = 'Exit command mode' }),
 
+  set('n', 'rr', '<Esc>:%s/', { noremap = true, desc = 'Regex string replace' }),
+
   set({ 'n', 'i' }, 'L', '<cmd>Lazy<CR>', { desc = 'Open Lazy' }),
-  set({ 'n', 'i' }, '<C-x>', '<Esc>:', { silent = true }),
+  set({ 'n', 'i' }, '<C-x>', '<Esc>:', { noremap = true, silent = true }),
 
   set('n', { '<leader>sf', '<c-p>' }, builtin.find_files, { desc = '[S]earch [F]iles' }),
   set('n', { '<leader>sg', '<c-_>' }, builtin.live_grep, { desc = '[S]earch by [G]rep' }),
@@ -33,17 +35,17 @@ return {
   set('n', '<A-Down>', '<C-d>zz', { silent = true }),
   set('n', '<A-Up>', '<C-u>zz', { silent = true }),
 
-  set('n', '<C-z>', '<cmd>u<CR>', { silent = true }),
-  set('i', '<C-z>', '<Esc>', { silent = true }),
+  set('n', { '<C-z>', '<D-z>' }, '<cmd>u<CR>', { silent = true }),
+  set('i', { '<C-z>', '<D-z>' }, '<Esc>', { silent = true }),
 
   set('n', '<C-c>', 'i', { noremap = true, desc = 'Enter insert mode' }),
   set('i', { '<C-c>', '<C-q>' }, '<Esc>', { noremap = true, desc = 'Exit insert mode' }),
 
   set({ 'n', 'i' }, '<C-y>', "<C-r><NL>", { noremap = true, desc = "Redo last change" }),
 
-  set("n", "<C-c><C-c>", "yy", { noremap = true, desc = "Copy" }),
-  set("n", "<C-v>", "p", { noremap = true, desc = "Paste" }),
-  set('v', '<C-c>', 'y', { noremap = true, desc = 'Copy' }),
+  set("n", {"<C-c><C-c>", "<D-c><D-c>"}, "yy", { noremap = true, desc = "Copy" }),
+  set("n", {"<C-v>", '<D-v>'}, "p", { noremap = true, desc = "Paste" }),
+  set('v', {'<C-c>', '<D-c>'}, 'y', { noremap = true, desc = 'Copy' }),
 
   set({ 'n', 'i' }, '<C-s>', '<cmd>w<CR><Esc>', { silent = true }),
 
