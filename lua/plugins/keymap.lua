@@ -1,7 +1,16 @@
 local builtin = require 'telescope.builtin'
 
+local function str_to_obj(modes)
+  local obj = {}
+  for i = 1, modes:len() do
+      obj[i] = modes:sub(i, i)
+  end
+
+  return obj
+end
+
 local function set(modes, maps, action, opts)
-  modes = type(modes) == 'string' and { modes } or modes
+  modes = type(modes) == 'string' and str_to_obj(modes) or modes
   maps = type(maps) == 'string' and { maps } or maps
 
   for _, mode in ipairs(modes) do
@@ -16,25 +25,16 @@ local clear_cmd_line = function()
   vim.cmd('echo ""')
 end
 
-local function str_to_obj(modes)
-  local obj = {}
-  for i = 1, modes:len() do
-      obj[i] = modes:sub(i, i)
-  end
-
-  return obj
-end
-
 return {
-  set(str_to_obj('ivc'), 'qq', clear_cmd_line, { noremap = true, desc = 'Exit mode' }),
-  set({ 'n', 'i' }, 'QQ', '<cmd>q<CR>', { noremap = true, desc = 'Quit' }),
-  set({ 'n', 'i', 'v' }, '..', '<Esc>:', { noremap = true, desc = 'Enter command mode' }),
+  set('ivc', 'qq', clear_cmd_line, { noremap = true, desc = 'Exit mode' }),
+  set('ni', 'QQ', '<cmd>q<CR>', { noremap = true, desc = 'Quit' }),
+  set('niv', '..', '<Esc>:', { noremap = true, desc = 'Enter command mode' }),
   set('c', '..', clear_cmd_line, { noremap = true, desc = 'Exit command mode' }),
 
   set('n', 'rr', '<Esc>:%s/', { noremap = true, desc = 'Regex string replace' }),
 
-  set({ 'n', 'i' }, 'L', '<cmd>Lazy<CR>', { desc = 'Open Lazy' }),
-  set({ 'n', 'i' }, '<C-x>', '<Esc>:', { noremap = true, silent = true }),
+  set('ni', 'L', '<cmd>Lazy<CR>', { desc = 'Open Lazy' }),
+  set('ni', '<C-x>', '<Esc>:', { noremap = true, silent = true }),
 
   set('n', { '<leader>sf', '<c-p>' }, builtin.find_files, { desc = '[S]earch [F]iles' }),
   set('n', { '<leader>sg', '<c-_>' }, builtin.live_grep, { desc = '[S]earch by [G]rep' }),
@@ -51,13 +51,13 @@ return {
   set('n', '<C-c>', 'i', { noremap = true, desc = 'Enter insert mode' }),
   set('i', { '<C-c>', '<C-q>' }, '<Esc>', { noremap = true, desc = 'Exit insert mode' }),
 
-  set({ 'n', 'i' }, '<C-y>', "<C-r><NL>", { noremap = true, desc = "Redo last change" }),
+  set('ni', '<C-y>', "<C-r><NL>", { noremap = true, desc = "Redo last change" }),
 
   set("n", {"<C-c><C-c>", "<D-c><D-c>"}, "yy", { noremap = true, desc = "Copy" }),
   set("n", {"<C-v>", '<D-v>'}, "p", { noremap = true, desc = "Paste" }),
   set('v', {'<C-c>', '<D-c>'}, 'y', { noremap = true, desc = 'Copy' }),
 
-  set({ 'n', 'i' }, '<C-s>', '<cmd>w<CR><Esc>', { silent = true }),
+  set('ni', '<C-s>', '<cmd>w<CR><Esc>', { silent = true }),
 
   set('n', '<C-q>', '<cmd>q<CR>', { silent = true, desc = 'Quit' }),
   set('n', '<C-q><Left>', '<cmd>Explore<CR>', { silent = true, desc = 'Quit to explorer' }),
