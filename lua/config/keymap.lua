@@ -26,6 +26,9 @@ local clear_cmd_line = function()
 end
 
 return {
+
+  set('n', '<leader>w', '<Plug>(easymotion-s2)', { noremap = true, desc = 'Search for word' }),
+
   set('ivc', 'qq', clear_cmd_line, { noremap = true, desc = 'Exit mode' }),
   set('ni', 'QQ', '<cmd>q<CR>', { noremap = true, desc = 'Quit' }),
   set('niv', ',,', '<Esc>:', { noremap = true, desc = 'Enter command mode' }),
