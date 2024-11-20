@@ -26,7 +26,7 @@ local clear_cmd_line = function()
 end
 
 return {
-
+  set('n', 'lg', '<cmd>LazyGit<CR>', { noremap = true, desc = 'lazygit' }),
   set('n', '<leader>w', '<Plug>(easymotion-s2)', { noremap = true, desc = 'Search for word' }),
 
   set('ivc', 'qq', clear_cmd_line, { noremap = true, desc = 'Exit mode' }),
@@ -36,7 +36,7 @@ return {
 
   set('n', 'rr', '<Esc>:%s/', { noremap = true, desc = 'Regex string replace' }),
 
-  set('ni', 'L', '<cmd>Lazy<CR>', { desc = 'Open Lazy' }),
+  set('ni', '<C-l>', '<cmd>Lazy<CR>', { desc = 'Open Lazy' }),
   set('ni', '<C-x>', '<Esc>:', { noremap = true, silent = true }),
 
   set('n', { '<leader>sf', '<c-p>' }, builtin.find_files, { desc = '[S]earch [F]iles' }),
