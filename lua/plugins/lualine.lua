@@ -44,7 +44,7 @@ return {
             tabline = {
                 -- lualine_a = {'filename'},
                 -- lualine_b = {'filename'},
-                -- lualine_c = {'filename', 'harpoon2'},
+                -- lualine_c = {'harpoon2'},
                 lualine_x = {'filename'},
                 -- lualine_y = {'filename'},
                 lualine_z = {'tabs'}
