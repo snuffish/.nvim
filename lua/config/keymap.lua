@@ -26,10 +26,12 @@ local clear_cmd_line = function()
 end
 
 return {
+  set('niv', 'h', '<Esc>:h ', { noremap = true, desc = 'Help' }),
+
   set('ivc', 'qq', clear_cmd_line, { noremap = true, desc = 'Exit mode' }),
   set('ni', 'QQ', '<cmd>q<CR>', { noremap = true, desc = 'Quit' }),
-  set('niv', '..', '<Esc>:', { noremap = true, desc = 'Enter command mode' }),
-  set('c', '..', clear_cmd_line, { noremap = true, desc = 'Exit command mode' }),
+  set('niv', ',,', '<Esc>:', { noremap = true, desc = 'Enter command mode' }),
+  set('c', ',,', clear_cmd_line, { noremap = true, desc = 'Exit command mode' }),
 
   set('n', 'rr', '<Esc>:%s/', { noremap = true, desc = 'Regex string replace' }),
 

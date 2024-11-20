@@ -8,9 +8,9 @@ local function getWordsV2()
 end
 -- Show directory tree depth
 local function file_tree_depth()
-  local path = vim.fn.expand('%:p:h')
-  local count = select(2, string.gsub(path, '/', ''))
-  return string.format('󰉋 %d', count)
+    local path = vim.fn.expand('%:p:h')
+    local count = select(2, string.gsub(path, '/', ''))
+    return string.format('󰉋 %d', count)
 end
 
 return {
@@ -35,7 +35,19 @@ return {
                 lualine_c = {file_tree_depth, 'filename'},
                 lualine_x = {'encoding', 'filetype'},
                 lualine_y = {'progress', getWordsV2},
-                lualine_z = {'location'}
+                lualine_z = {'location', {
+                    'searchcount',
+                    maxcount = 999,
+                    timeout = 500
+                }}
+            },
+            tabline = {
+                -- lualine_a = {'filename'},
+                -- lualine_b = {'filename'},
+                lualine_c = {'filename', 'harpoon2'},
+                -- lualine_x = {'filename'},
+                -- lualine_y = {'filename'},
+                lualine_z = {'tabs'}
             }
         })
     end
