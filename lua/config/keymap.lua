@@ -3,7 +3,7 @@ local builtin = require 'telescope.builtin'
 local function str_to_obj(modes)
   local obj = {}
   for i = 1, modes:len() do
-      obj[i] = modes:sub(i, i)
+    obj[i] = modes:sub(i, i)
   end
 
   return obj
@@ -22,12 +22,10 @@ end
 
 local clear_cmd_line = function()
   vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<C-c>', true, true, true), 'n')
-  vim.cmd('echo ""')
+  vim.cmd 'echo ""'
 end
 
 return {
-  set('niv', 'h', '<Esc>:h ', { noremap = true, desc = 'Help' }),
-
   set('ivc', 'qq', clear_cmd_line, { noremap = true, desc = 'Exit mode' }),
   set('ni', 'QQ', '<cmd>q<CR>', { noremap = true, desc = 'Quit' }),
   set('niv', ',,', '<Esc>:', { noremap = true, desc = 'Enter command mode' }),
@@ -53,11 +51,11 @@ return {
   set('n', '<C-c>', 'i', { noremap = true, desc = 'Enter insert mode' }),
   set('i', { '<C-c>', '<C-q>' }, '<Esc>', { noremap = true, desc = 'Exit insert mode' }),
 
-  set('ni', '<C-y>', "<C-r><NL>", { noremap = true, desc = "Redo last change" }),
+  set('ni', '<C-y>', '<C-r><NL>', { noremap = true, desc = 'Redo last change' }),
 
-  set("n", {"<C-c><C-c>", "<D-c><D-c>"}, "yy", { noremap = true, desc = "Copy" }),
-  set("n", {"<C-v>", '<D-v>'}, "p", { noremap = true, desc = "Paste" }),
-  set('v', {'<C-c>', '<D-c>'}, 'y', { noremap = true, desc = 'Copy' }),
+  set('n', { '<C-c><C-c>', '<D-c><D-c>' }, 'yy', { noremap = true, desc = 'Copy' }),
+  set('n', { '<C-v>', '<D-v>' }, 'p', { noremap = true, desc = 'Paste' }),
+  set('v', { '<C-c>', '<D-c>' }, 'y', { noremap = true, desc = 'Copy' }),
 
   set('ni', '<C-s>', '<cmd>w<CR><Esc>', { silent = true }),
 
@@ -77,7 +75,7 @@ return {
 
   -- Select all
   set('n', '<C-a>', 'gg<S-v>G', { desc = 'Select all' }),
- 
+
   -- Window navigation
   set('n', '<leader><Up>', '<C-w><Up>', { noremap = true, desc = 'Goto Window up' }),
   set('n', '<leader><Down>', '<C-w><Down>', { noremap = true, desc = 'Goto Window down' }),
@@ -89,10 +87,8 @@ return {
   set('n', '<leader><leader><Right>', '<C-w>v', { noremap = true, desc = 'Split window right/vertical' }),
 
   -- Font size adjustment
-  set('n', '<C-=>', '<cmd>lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>',
-    { desc = 'Increase font size' }),
-  set('n', '<C-->', '<cmd>lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<CR>',
-    { desc = 'Decrease font size' }),
+  set('n', '<C-=>', '<cmd>lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>', { desc = 'Increase font size' }),
+  set('n', '<C-->', '<cmd>lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<CR>', { desc = 'Decrease font size' }),
   set('n', '<C-0>', '<cmd>lua vim.g.neovide_scale_factor = 1.0<CR>', { desc = 'Reset font size' }),
 
   set('n', '<CR>', 'o', { desc = 'New line in insert mode' }),
