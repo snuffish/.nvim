@@ -1,7 +1,7 @@
 local function getWordsV2()
     local wc = vim.fn.wordcount()
     if wc["visual_words"] then -- text is selected in visual mode
-        return wc["visual_words"] .. " Words/" .. wc['visual_chars'] .. " Chars (Vis)"
+        return wc["visual_words"] .. "w/" .. wc['visual_chars'] .. "ch"
     else -- all of the document
         return wc["words"] .. "w"
     end
