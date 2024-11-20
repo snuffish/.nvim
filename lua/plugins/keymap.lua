@@ -16,8 +16,17 @@ local clear_cmd_line = function()
   vim.cmd('echo ""')
 end
 
+local function str_to_obj(modes)
+  local obj = {}
+  for i = 1, modes:len() do
+      obj[i] = modes:sub(i, i)
+  end
+
+  return obj
+end
+
 return {
-  set({ 'i', 'v', 'c' }, 'qq', clear_cmd_line, { noremap = true, desc = 'Exit mode' }),
+  set(str_to_obj('ivc'), 'qq', clear_cmd_line, { noremap = true, desc = 'Exit mode' }),
   set({ 'n', 'i' }, 'QQ', '<cmd>q<CR>', { noremap = true, desc = 'Quit' }),
   set({ 'n', 'i', 'v' }, '..', '<Esc>:', { noremap = true, desc = 'Enter command mode' }),
   set('c', '..', clear_cmd_line, { noremap = true, desc = 'Exit command mode' }),
