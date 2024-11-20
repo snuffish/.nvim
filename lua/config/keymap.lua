@@ -26,27 +26,30 @@ local clear_cmd_line = function()
 end
 
 return {
+
+  set('n', '<A-Down>', '}zz', { noremap = true, silent = true }),
+  set('n', '<A-Up>', '{zz', { noremap = true, silent = true }),
+
   set('n', 'lg', '<cmd>LazyGit<CR>', { noremap = true, desc = 'lazygit' }),
-  set('n', '<leader>w', '<Plug>(easymotion-s2)', { noremap = true, desc = 'Search for word' }),
+  set('n', '<leader>w', '<Plug>(easymotion)', { noremap = true, desc = 'Search for word' }),
 
   set('ivc', 'qq', clear_cmd_line, { noremap = true, desc = 'Exit mode' }),
   set('ni', 'QQ', '<cmd>q<CR>', { noremap = true, desc = 'Quit' }),
-  set('niv', ',,', '<Esc>:', { noremap = true, desc = 'Enter command mode' }),
-  set('c', ',,', clear_cmd_line, { noremap = true, desc = 'Exit command mode' }),
+  set('niv', '<C-p>', '<Esc>:', { noremap = true, desc = 'Enter command mode' }),
 
   set('n', 'rr', '<Esc>:%s/', { noremap = true, desc = 'Regex string replace' }),
 
   set('ni', '<C-l>', '<cmd>Lazy<CR>', { desc = 'Open Lazy' }),
   set('ni', '<C-x>', '<Esc>:', { noremap = true, silent = true }),
 
-  set('n', { '<leader>sf', '<c-p>' }, builtin.find_files, { desc = '[S]earch [F]iles' }),
-  set('n', { '<leader>sg', '<c-_>' }, builtin.live_grep, { desc = '[S]earch by [G]rep' }),
+  set('n', { '<leader>sf', '<C-o>' }, builtin.find_files, { noremap = true, desc = '[S]earch [F]iles' }),
+  set('n', { '<leader>sg', '<C-_>' }, builtin.live_grep, { noremap = true, desc = '[S]earch by [G]rep' }),
   set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' }),
 
-  set('n', '<leader>so', ':source $MYVIMRC', { silent = true }),
+  set('n', '<leader>so', ':source Fummlar runt in-the-dark$MYVIMRC', { silent = true }),
 
-  set('n', '<A-Down>', '<C-d>zz', { silent = true }),
-  set('n', '<A-Up>', '<C-u>zz', { silent = true }),
+  --set('n', '<A-Down>', '<C-d>zz', { silent = true }),
+  --set('n', '<A-Up>', '<C-u>zz', { silent = true }),
 
   set('n', { '<C-z>', '<D-z>' }, '<cmd>u<CR>', { silent = true }),
   set('i', { '<C-z>', '<D-z>' }, '<Esc>', { silent = true }),
@@ -94,8 +97,8 @@ return {
   set('n', '<C-->', '<cmd>lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<CR>', { desc = 'Decrease font size' }),
   set('n', '<C-0>', '<cmd>lua vim.g.neovide_scale_factor = 1.0<CR>', { desc = 'Reset font size' }),
 
-  set('n', '<CR>', 'o', { desc = 'New line in insert mode' }),
-  set('n', 's<CR>', 'i', { desc = 'New line above in insert mode' }),
+  -- set('n', '<CR>', 'o', { desc = 'New line in insert mode' }),
+  -- set('n', 's<CR>', 'i', { desc = 'New line above in insert mode' }),
 
   -- Visual mode selections with Shift + Arrow keys
   set('n', '<S-Up>', 'v<Up>', { desc = 'Select line above' }),
