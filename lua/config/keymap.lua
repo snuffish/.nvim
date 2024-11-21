@@ -12,6 +12,7 @@ return {
   set('n', '<A-Down>', '}zz', { noremap = true, silent = true }),
   set('n', '<A-Up>', '{zz', { noremap = true, silent = true }),
 
+  set('nivc', '<C-z-q>', ':q!<CR>', { noremap = true, desc = 'Quit' }),
   set('nivc', 'QQ', utils.clear_cmd_line, { noremap = true, desc = 'Quit' }),
   set('niv', '<C-p>', '<Esc>:', { noremap = true, desc = 'Enter command mode' }),
 
