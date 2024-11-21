@@ -6,11 +6,12 @@ local function getWordsV2()
     return wc['words'] .. 'w'
   end
 end
+
 -- Show directory tree depth
 local function file_tree_depth()
   local path = vim.fn.expand '%:p:h'
   local count = select(2, string.gsub(path, '/', ''))
-  return string.format('󰉋 %d', count)
+  return string.format(' %d', count)
 end
 
 return {
@@ -42,14 +43,14 @@ return {
         } },
       },
       tabline = {
-        lualine_c = {
+        lualine_c = { 'filename' },
+        --lualine_b = { '' },
+        --lualine_c = {'harpoon2'},
+        lualine_x = {
           function()
             return vim.fn.getcwd()
           end,
         },
-        --lualine_b = { 'filename' },
-        --lualine_c = {'harpoon2'},
-        lualine_x = { 'filename' },
         lualine_y = {},
         lualine_z = { 'tabs' },
       },
