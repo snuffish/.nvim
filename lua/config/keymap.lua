@@ -29,14 +29,19 @@ return {
 
   set('n', '<leader>`', '<cmd>Telescope buffers<CR>', { noremap = true, silent = true }),
 
-  set('n', '<C-A-Up>', '5kzz', { noremap = true, silent = true }),
-  set('n', '<C-A-Down>', '5jzz', { noremap = true, silent = true }),
+  --set('n', '<C-A-Up>', '5kzz', { noremap = true, silent = true }),
+  --set('n', '<C-A-Down>', '5jzz', { noremap = true, silent = true }),
+
+  vim.api.nvim_set_keymap('n', '<C-A-Down>', ')zz', { noremap = true, silent = true }),
+  vim.api.nvim_set_keymap('n', '<C-A-Up>', '(zz', { noremap = true, silent = true }),
 
   set('n', '<A-Down>', '}zz', { noremap = true, silent = true }),
   set('n', '<A-Up>', '{zz', { noremap = true, silent = true }),
 
   set('n', 'lg', '<cmd>LazyGit<CR>', { noremap = true, desc = 'lazygit' }),
-  set('n', '<leader>w', '<Plug>(easymotion-2)', { noremap = true, desc = 'Search for word' }),
+  -- set('n', '<leader>w', '<Plug>(easymotion-2)', { noremap = true, desc = 'Search for word' }),
+  vim.api.nvim_set_keymap('n', '<Leader><Leader>s', '<Plug>(easymotion-overwin-f)', {}),
+  vim.api.nvim_set_keymap('n', '<Leader><Leader>q', '<Plug>(easymotion-overwin-line)', {}),
 
   --set('ivc', 'QQ', clear_cmd_line, { noremap = true, desc = 'Exit mode' }),
   set('nivc', 'QQ', clear_cmd_line, { noremap = true, desc = 'Quit' }),
