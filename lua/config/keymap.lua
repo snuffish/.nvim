@@ -17,12 +17,7 @@ return {
 
   set('n', 'rr', '<Esc>:%s/', { noremap = true, desc = 'Regex string replace' }),
 
-  set('ni', '<C-l>', '<cmd>Lazy<CR>', { desc = 'Open Lazy' }),
   set('ni', '<C-x>', '<Esc>:', { noremap = true, silent = true }),
-
-  set('n', { '<leader>sf', '<C-o>' }, builtin.find_files, { noremap = true, desc = '[S]earch [F]iles' }),
-  set('n', { '<leader>sg', '<C-_>', '<C-g>' }, builtin.live_grep, { noremap = true, desc = '[S]earch by [G]rep' }),
-  set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' }),
 
   set('n', '<leader>so', ':source Fummlar runt in-the-dark$MYVIMRC', { silent = true }),
 

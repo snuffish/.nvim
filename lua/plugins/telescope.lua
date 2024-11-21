@@ -8,6 +8,7 @@ set('n', { '<leader>sf', '<C-o>' }, builtin.find_files, { noremap = true, desc =
 set('n', { '<leader>sg', '<C-_>', '<C-g>' }, builtin.live_grep, { noremap = true, desc = '[S]earch by [G]rep' })
 set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
 
+
 -- NOTE: Plugins can specify dependencies.
 --
 -- The dependencies are proper plugin specifications as well - anything
@@ -37,7 +38,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
     { 'nvim-telescope/telescope-ui-select.nvim' },
 
     -- Useful for getting pretty icons, but requires a Nerd Font.
-    { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
+    { 'nvim-tree/nvim-web-devicons',            enabled = vim.g.have_nerd_font },
   },
   config = function()
     -- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -82,6 +83,8 @@ return { -- Fuzzy Finder (files, lsp, etc)
     pcall(require('telescope').load_extension, 'fzf')
     pcall(require('telescope').load_extension, 'ui-select')
 
+    set('ni', '<C-l>', '<cmd>Lazy<CR>', { desc = 'Open Lazy' })
+
     -- See `:help telescope.builtin`
     set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
     set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
@@ -90,6 +93,10 @@ return { -- Fuzzy Finder (files, lsp, etc)
     set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
     set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
     --set('n', '<leader><leader>b', builtin.buffers, { desc = '[ ] Find existing buffers' })
+
+    set('n', { '<leader>sf', '<C-o>' }, builtin.find_files, { noremap = true, desc = '[S]earch [F]iles' })
+    set('n', { '<leader>sg', '<C-_>', '<C-g>' }, builtin.live_grep, { noremap = true, desc = '[S]earch by [G]rep' })
+    set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
 
     set('n', '<leader>/', function()
       -- You can pass additional configuration to Telescope to change the theme, layout, etc.
@@ -112,6 +119,5 @@ return { -- Fuzzy Finder (files, lsp, etc)
     set('n', '<leader>sn', function()
       builtin.find_files { cwd = vim.fn.stdpath 'config' }
     end, { desc = '[S]earch [N]eovim files' })
-
   end,
 }
