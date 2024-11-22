@@ -12,12 +12,8 @@ set('n', '<leader><leader><Down>', '<C-w>s', { noremap = true, desc = 'Split win
 set('n', '<leader><leader><Right>', '<C-w>v', { noremap = true, desc = 'Split window right/vertical' })
 
 -- Font size adjustment
-set('n', '<C-=>', '<cmd>lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>',
-    { desc = 'Increase font size' })
-set('n', '<C-->', '<cmd>lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<CR>',
-    { desc = 'Decrease font size' })
+set('n', '<C-.>', '<cmd>lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>', { desc = 'Increase font size' })
+set('n', '<C-,>', '<cmd>lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<CR>', { desc = 'Decrease font size' })
 set('n', '<C-0>', '<cmd>lua vim.g.neovide_scale_factor = 1.0<CR>', { desc = 'Reset font size' })
 
-return {
-
-}
+return {}
