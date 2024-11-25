@@ -7,7 +7,7 @@ set('n', '<leader><Down>', '<C-w><Down>', { noremap = true, desc = 'Goto Window 
 set('n', '<leader><Left>', '<C-w><Left>', { noremap = true, desc = 'Goto Window left' })
 set('n', '<leader><Right>', '<C-w><Right>', { noremap = true, desc = 'Goto Window right' })
 
-set('n', '<leader><leader>m', '<leader>sm', { noremap = true, desc = 'Toggle maximize window' })
+set('n', '<leader><leader>m', '<leader>m', { noremap = true, desc = 'Toggle maximize window' })
 set('n', '<leader><leader><Down>', '<C-w>s', { noremap = true, desc = 'Split window down/horizontal' })
 set('n', '<leader><leader><Right>', '<C-w>v', { noremap = true, desc = 'Split window right/vertical' })
 
