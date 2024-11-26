@@ -3,9 +3,6 @@ local utils = require '../utils'
 local set = utils.set
 
 return {
-  --set('n', '<C-A-Up>', '5kzz', { noremap = true, silent = true }),
-  --set('n', '<C-A-Down>', '5jzz', { noremap = true, silent = true }),
-
   vim.api.nvim_set_keymap('n', '<C-A-Down>', ')zz', { noremap = true, silent = true }),
   vim.api.nvim_set_keymap('n', '<C-A-Up>', '(zz', { noremap = true, silent = true }),
 
