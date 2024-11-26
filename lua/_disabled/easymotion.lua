@@ -1,5 +1,5 @@
 -- https://github.com/easymotion/vim-easymotion
-local utils = require '../utils'
+local utils = require 'utils'
 
 vim.api.nvim_set_keymap('n', '<Leader><Leader>s', '<Plug>(easymotion-overwin-f)', {})
 --vim.api.nvim_set_keymap('n', '<leader>s', '<Plug>(easymotion-overwin-f)', {})

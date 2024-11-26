@@ -1,4 +1,4 @@
-local utils = require '../utils'
+local utils = require 'utils'
 local set = utils.set
 
 return {

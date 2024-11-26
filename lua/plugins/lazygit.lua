@@ -1,4 +1,4 @@
-local utils = require '../utils'
+local utils = require 'utils'
 utils.set('n', 'lg', '<cmd>LazyGit<CR>', { noremap = true, desc = 'lazygit' })
 
 return {

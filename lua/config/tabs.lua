@@ -1,4 +1,4 @@
-local utils = require '../utils'
+local utils = require 'utils'
 local set = utils.set
 
 for i = 1, 9, 1 do

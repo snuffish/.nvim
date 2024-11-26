@@ -1,4 +1,4 @@
-local utils = require '../utils'
+local utils = require 'utils'
 
 utils.set('vinc', '<F1><F1>', function()
   require('pretty_hover').hover()

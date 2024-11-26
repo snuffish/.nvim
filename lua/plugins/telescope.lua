@@ -1,5 +1,5 @@
 local builtin = require 'telescope.builtin'
-local utils = require '../utils'
+local utils = require 'utils'
 local set = utils.set
 
 return { -- Fuzzy Finder (files, lsp, etc)
