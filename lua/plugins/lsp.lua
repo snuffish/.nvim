@@ -66,7 +66,7 @@ return {
     require('mason').setup {}
     require('mason-lspconfig').setup {
       ensure_installed = {
-        --'typescript-language-server',
+        'ts_ls',
         'eslint',
         'rust_analyzer',
         'kotlin_language_server',
@@ -81,7 +81,6 @@ return {
         'dockerls',
         'bashls',
         'marksman',
-        'solargraph',
         'cucumber_language_server',
         'gopls',
         'astro',
