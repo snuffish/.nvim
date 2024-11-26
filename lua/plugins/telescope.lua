@@ -3,7 +3,7 @@ local utils = require '../utils'
 local set = utils.set
 
 set('n', '<leader>`', '<cmd>Telescope buffers<CR>', { noremap = true, silent = true })
-set('n', '<A-`>', '<C-6>', { noremap = true, silent = true, desc = 'Alternate file' })
+set('n', { '<A-`>', '<leader><leader>`' }, '<C-6>', { noremap = true, silent = true, desc = 'Alternate file' })
 set('n', { '<leader>sf', '<C-o>' }, builtin.find_files, { noremap = true, desc = '[S]earch [F]iles' })
 set('n', { '<leader>sg', '<C-_>', '<C-g>' }, builtin.live_grep, { noremap = true, desc = '[S]earch by [G]rep' })
 set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
