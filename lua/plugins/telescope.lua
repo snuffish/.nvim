@@ -2,8 +2,6 @@ local builtin = require 'telescope.builtin'
 local utils = require '../utils'
 local set = utils.set
 
-set('n', '<leader>`', '<cmd>Telescope buffers<CR>', { noremap = true, silent = true })
-
 return { -- Fuzzy Finder (files, lsp, etc)
   'nvim-telescope/telescope.nvim',
   event = 'VimEnter',
@@ -20,6 +18,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
     { 'nvim-telescope/telescope-ui-select.nvim' },
     { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
   },
+  -- stylua: ignore
   config = function()
     require('telescope').setup {
       extensions = {
@@ -35,9 +34,13 @@ return { -- Fuzzy Finder (files, lsp, etc)
     pcall(require('telescope').load_extension, 'fzf')
     pcall(require('telescope').load_extension, 'ui-select')
 
-    set('ni', '<C-l>', '<cmd>Lazy<CR>', { desc = 'Open Lazy' })
-
     -- See `:help telescope.builtin`
+    set('ni', '<C-l>', '<cmd>Lazy<CR>', { desc = 'Open Lazy' })
+    set('n', '<leader>`', '<cmd>Telescope buffers<CR>', {
+        noremap = true,
+        silent = true
+    })
+
     set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
     set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
     set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
