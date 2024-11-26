@@ -2,12 +2,13 @@ local utils = require 'utils'
 local set = utils.set
 
 return {
+  set('n', '<C-a>', 'ggVG', { desc = 'Select all' }),
+  set('n', '<CR><Up>', 'O<Esc><Down>', { noremap = true, desc = 'Add blank-line above cursor' }),
+  set('n', { '<CR><CR>', '<CR><Down>' }, 'o<Esc><Up>', { noremap = true, desc = 'Add blank-line below cursor' }),
+
   -- Jump in editor
   set('n', '<PageUp>', '<C-u>zz', { desc = 'Jump up 1/2-screen' }),
   set('n', '<PageDown>', '<C-d>zz', { desc = 'Jump down 1/2-screen' }),
-
-  set('n', '<C-a>', 'gg<S-v>G', { desc = 'Select all' }),
-  set('n', '<CR><CR>', 'o<Esc><Up>', { desc = 'Add blank-line below cursor' }),
 
   -- Visual mode selections with Shift + Arrow keys
   set('n', '<S-Up>', 'V<Up>', { desc = 'Select line above' }),
