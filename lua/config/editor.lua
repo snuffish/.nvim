@@ -32,14 +32,17 @@ return {
   -- Visual mode selections with Shift + Arrow keys
   set('n', '<S-Up>', 'V<Up>', { desc = 'Select line above' }),
   set('n', '<S-Down>', 'V<Down>', { desc = 'Select line below' }),
-  set('n', '<S-Left>', 'V<Left>', { desc = 'Select character left' }),
-  set('n', '<S-Right>', 'V<Right>', { desc = 'Select character right' }),
+  set('n', '<S-Left>', 'v<Left>', { desc = 'Select character left' }),
+  set('n', '<S-Right>', 'v<Right>', { desc = 'Select character right' }),
 
   -- Continue visual mode selection
   set('v', '<S-Up>', '<Up>', { desc = 'Extend selection up' }),
   set('v', '<S-Down>', '<Down>', { desc = 'Extend selection down' }),
   set('v', '<S-Left>', '<Left>', { desc = 'Extend selection left' }),
-  set('v', '<S-Right>', '<Right>', { desc = 'Extend selection right' }),
+
+  -- Jump on line
+  set('nv', '<A-Right>', '$', { desc = 'Jump to end of line' }),
+  set('nv', '<A-Left>', '^', { desc = 'Jump to start of line' }),
 
   -- set('n', '<CR><CR>', 'o<Esc>', { desc = 'Toggle visual-line' }),
   -- set('n', '<CR><CR>', function()

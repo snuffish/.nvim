@@ -10,7 +10,6 @@ return {
   set('n', '<A-Up>', '{zz', { noremap = true, silent = true }),
 
   set('nivc', '<C-z-q>', ':q!<CR>', { noremap = true, desc = 'Quit' }),
-  set('nivc', 'QQ', utils.clear_cmd_line, { noremap = true, desc = 'Quit' }),
   set('niv', '<C-p>', '<Esc>:', { noremap = true, desc = 'Enter command mode' }),
 
   set('n', 'rr', '<Esc>:%s/', { noremap = true, desc = 'Regex string replace' }),
@@ -46,8 +45,4 @@ return {
 
   set('n', '<Del>', '"_xi', { noremap = true, desc = 'Delete character under cursor' }),
   set('n', '<BS>', '"_Xi', { noremap = true, desc = 'Delete character before cursor' }),
-
-  -- Jump on line
-  set('n', '<A-Right>', '$', { noremap = true, desc = 'Jump to end of line' }),
-  set('n', '<A-Left>', '^', { noremap = true, desc = 'Jump to start of line' }),
 }

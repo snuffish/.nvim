@@ -87,6 +87,8 @@ return {
         'marksman',
         'cucumber_language_server',
         'astro',
+        'csharp_ls',
+        'gopls',
       },
       handlers = {
         lsp.default_setup,
