@@ -8,3 +8,5 @@ set('n', { '<C-t><Left>', '<leader>t<Left>' }, '<cmd>tabprevious<CR>', { noremap
 for i = 1, 9, 1 do
   set('n', '<leader>' .. i, '<cmd>tabnext ' .. i .. '<CR>', { desc = 'Goto tab ' .. i })
 end
+
+return {}
