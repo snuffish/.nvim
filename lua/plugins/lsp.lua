@@ -77,12 +77,10 @@ return {
         'elixirls',
         'tailwindcss',
         'tflint',
-        'pylsp',
         'dockerls',
         'bashls',
         'marksman',
         'cucumber_language_server',
-        'gopls',
         'astro',
       },
       handlers = {
