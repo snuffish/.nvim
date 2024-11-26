@@ -1,6 +1,25 @@
 local utils = require 'utils'
 local set = utils.set
 
+local defaultColor = '#292E42'
+local insertModeColor = '#505b8b'
+
+local enableInsertModeColor = function(enabled)
+  vim.cmd('highlight CursorLine guibg=' .. (enabled and insertModeColor or defaultColor))
+end
+
+vim.api.nvim_create_autocmd('InsertEnter', {
+  callback = function()
+    enableInsertModeColor(true)
+  end,
+})
+
+vim.api.nvim_create_autocmd('InsertLeave', {
+  callback = function()
+    enableInsertModeColor(false)
+  end,
+})
+
 return {
   set('n', '<C-a>', 'ggVG', { desc = 'Select all' }),
   set('n', '<CR><Up>', 'O<Esc><Down>', { noremap = true, desc = 'Add blank-line above cursor' }),

@@ -1,3 +1,6 @@
+local utils = require 'utils'
+local set = utils.set
+
 return {
   'VonHeikemen/lsp-zero.nvim',
   branch = 'v2.x',
@@ -55,9 +58,11 @@ return {
       vim.keymap.set('n', '<leader>vrr', function()
         vim.lsp.buf.references()
       end, vim.tbl_deep_extend('force', opts, { desc = 'LSP References' }))
-      vim.keymap.set('n', '<leader>vrn', function()
+
+      set('n', { '<leader>vrn', 'gr' }, function()
         vim.lsp.buf.rename()
       end, vim.tbl_deep_extend('force', opts, { desc = 'LSP Rename' }))
+
       vim.keymap.set('i', '<C-h>', function()
         vim.lsp.buf.signature_help()
       end, vim.tbl_deep_extend('force', opts, { desc = 'LSP Signature Help' }))
