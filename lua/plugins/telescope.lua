@@ -3,10 +3,6 @@ local utils = require '../utils'
 local set = utils.set
 
 set('n', '<leader>`', '<cmd>Telescope buffers<CR>', { noremap = true, silent = true })
-set('n', { '<A-`>', '<leader><leader>`' }, '<C-6>', { noremap = true, silent = true, desc = 'Alternate file' })
-set('n', { '<leader>sf', '<C-o>' }, builtin.find_files, { noremap = true, desc = '[S]earch [F]iles' })
-set('n', { '<leader>sg', '<C-_>', '<C-g>' }, builtin.live_grep, { noremap = true, desc = '[S]earch by [G]rep' })
-set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
 
 return { -- Fuzzy Finder (files, lsp, etc)
   'nvim-telescope/telescope.nvim',
@@ -48,8 +44,8 @@ return { -- Fuzzy Finder (files, lsp, etc)
     set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
     set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
     set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
-    --set('n', '<leader><leader>b', builtin.buffers, { desc = '[ ] Find existing buffers' })
 
+    set('n', { '<A-`>', '<leader><leader>`' }, '<C-6>', { noremap = true, silent = true, desc = 'Alternate file' })
     set('n', { '<leader>sf', '<C-o>' }, builtin.find_files, { noremap = true, desc = '[S]earch [F]iles' })
     set('n', { '<leader>sg', '<C-_>', '<C-g>' }, builtin.live_grep, { noremap = true, desc = '[S]earch by [G]rep' })
     set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
