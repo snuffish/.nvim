@@ -10,7 +10,8 @@ return {
   set('n', '<A-Up>', '{zz', { noremap = true, silent = true }),
 
   set('nivc', '<C-z-q>', ':q!<CR>', { noremap = true, desc = 'Quit' }),
-  set('niv', '<C-p>', '<Esc>:', { noremap = true, desc = 'Enter command mode' }),
+  set('nv', '<C-p>', ':', { noremap = true, desc = 'Enter command mode' }),
+  set('i', '<C-p>', '<Esc>:', { noremap = true, desc = 'Enter command mode' }),
 
   set('n', 'rr', '<Esc>:%s/', { noremap = true, desc = 'Regex string replace' }),
 
