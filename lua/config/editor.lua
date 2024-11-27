@@ -23,7 +23,7 @@ vim.api.nvim_create_autocmd('InsertLeave', {
 return {
   set('n', '<C-a>', 'ggVG', { desc = 'Select all' }),
   set('n', '<CR><Up>', 'O<Esc><Down>', { noremap = true, desc = 'Add blank-line above cursor' }),
-  set('n', { '<CR><CR>', '<CR><Down>' }, 'o<Esc><Up>', { noremap = true, desc = 'Add blank-line below cursor' }),
+  set('n', { '<CR><Down>', '<CR><CR>' }, 'o<Esc><Up>', { noremap = true, desc = 'Add blank-line below cursor' }),
 
   -- Jump in editor
   set('n', '<PageUp>', '<C-u>zz', { desc = 'Jump up 1/2-screen' }),
@@ -45,6 +45,9 @@ return {
   set('nv', '<A-Down>', '}zz', { silent = true, desc = 'Jump down 1 paragraph {}' }),
   set('nv', '<A-Right>', '$', { desc = 'Jump to end of line' }),
   set('nv', '<A-Left>', '^', { desc = 'Jump to start of line' }),
+
+  set('n', '<C-Up>', 'VdkP', { noremap = true, silent = true }),
+  set('n', '<C-Down>', 'VdjP', { noremap = true, silent = true }),
 
   set('v', '<Up>', ":m '<-2<CR>gv=gv'", { silent = true, desc = 'Move lines up' }),
   set('v', '<Down>', ":m '>+1<CR>gv=gv'", { silent = true, desc = 'Move line down' }),
