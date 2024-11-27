@@ -40,9 +40,14 @@ return {
   set('v', '<S-Down>', '<Down>', { desc = 'Extend selection down' }),
   set('v', '<S-Left>', '<Left>', { desc = 'Extend selection left' }),
 
-  -- Jump on line
+  -- Both visual mode & normal mode compatible
+  set('nv', '<A-Up>', '{zz', { silent = true, desc = 'Jump up 1 paragraph {}' }),
+  set('nv', '<A-Down>', '}zz', { silent = true, desc = 'Jump down 1 paragraph {}' }),
   set('nv', '<A-Right>', '$', { desc = 'Jump to end of line' }),
   set('nv', '<A-Left>', '^', { desc = 'Jump to start of line' }),
+
+  -- vim.api.nvim_set_keymap('n', '<C-A-Down>', ')zz', { noremap = true, silent = true }),
+  -- vim.api.nvim_set_keymap('n', '<C-A-Up>', '(zz', { noremap = true, silent = true }),
 
   -- set('n', '<CR><CR>', 'o<Esc>', { desc = 'Toggle visual-line' }),
   -- set('n', '<CR><CR>', function()
