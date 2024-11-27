@@ -52,6 +52,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
     set('n', { '<leader>sf', '<C-o>' }, builtin.find_files, { noremap = true, desc = '[S]earch [F]iles' })
     set('n', { '<leader>sg', '<C-_>', '<C-g>' }, builtin.live_grep, { noremap = true, desc = '[S]earch by [G]rep' })
     set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
+    set('n', '<leader>sl', builtin.lsp_references, { desc = '[S]earch [L]SP References' })
 
     set('n', '<leader>/', function()
       -- You can pass additional configuration to Telescope to change the theme, layout, etc.
