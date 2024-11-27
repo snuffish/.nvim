@@ -46,6 +46,9 @@ return {
   set('nv', '<A-Right>', '$', { desc = 'Jump to end of line' }),
   set('nv', '<A-Left>', '^', { desc = 'Jump to start of line' }),
 
+  set('v', '<Up>', ":m '<-2<CR>gv=gv'", { silent = true, desc = 'Move lines up' }),
+  set('v', '<Down>', ":m '>+1<CR>gv=gv'", { silent = true, desc = 'Move line down' }),
+
   -- vim.api.nvim_set_keymap('n', '<C-A-Down>', ')zz', { noremap = true, silent = true }),
   -- vim.api.nvim_set_keymap('n', '<C-A-Up>', '(zz', { noremap = true, silent = true }),
 

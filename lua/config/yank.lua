@@ -13,9 +13,6 @@ vim.g.clipboard = {
   },
 }
 
--- I want this "cy" keymap to work to yank the current line to the system clipboard
 vim.api.nvim_set_keymap('v', '<C-y>', '"+y', { noremap = true, desc = 'Yank to system clipboard' })
-
--- set('n', 'cy', '"*c', { noremap = true, desc = 'Previous search result (centered)' })
 
 return {}
