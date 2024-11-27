@@ -1,22 +1,50 @@
 local utils = require 'utils'
 local set = utils.set
 
-local defaultColor = '#292E42'
-local insertModeColor = '#505b8b'
+local NORMAL = {
+  lineCursor = '#292E42',
+  lineNr = '#7AA2F7',
+}
 
-local enableInsertModeColor = function(enabled)
-  vim.cmd('highlight CursorLine guibg=' .. (enabled and insertModeColor or defaultColor))
+local INSERT = {
+  lineNr = '#9ECE6A',
+  lineCursor = '#505b8b',
+}
+
+local VISUAL = {
+  lineNr = '#BB9AF7',
+}
+
+local MODE = {
+  NORMAL = 0,
+  INSERT = 1,
+  VISUAL = 2,
+}
+
+vim.api.nvim_set_hl(MODE.NORMAL, 'CursorLine', { bg = NORMAL.lineCursor })
+vim.api.nvim_set_hl(MODE.NORMAL, 'CursorLineNr', { reverse = true, bold = true, fg = NORMAL.lineNr })
+
+vim.api.nvim_set_hl(MODE.INSERT, 'CursorLineNr', { reverse = true, bold = true, fg = INSERT.lineNr })
+vim.api.nvim_set_hl(MODE.INSERT, 'CursorLine', { bg = INSERT.lineCursor })
+
+vim.api.nvim_set_hl(MODE.VISUAL, 'CursorLineNr', { reverse = true, bold = true, fg = VISUAL.lineNr })
+
+local setCurrentMode = function(mode)
+  vim.api.nvim_set_hl_ns(mode)
 end
 
-vim.api.nvim_create_autocmd('InsertEnter', {
-  callback = function()
-    enableInsertModeColor(true)
-  end,
-})
+setCurrentMode(MODE.NORMAL)
 
-vim.api.nvim_create_autocmd('InsertLeave', {
+vim.api.nvim_create_autocmd('ModeChanged', {
   callback = function()
-    enableInsertModeColor(false)
+    local mode = vim.fn.mode()
+    if mode == 'v' or mode == 'V' then
+      setCurrentMode(MODE.VISUAL)
+    elseif mode == 'i' then
+      setCurrentMode(MODE.INSERT)
+    end
+
+    setCurrentMode(MODE.NORMAL)
   end,
 })
 
@@ -51,46 +79,4 @@ return {
 
   set('v', '<Up>', ":m '<-2<CR>gv=gv'", { silent = true, desc = 'Move lines up' }),
   set('v', '<Down>', ":m '>+1<CR>gv=gv'", { silent = true, desc = 'Move line down' }),
-
-  -- vim.api.nvim_set_keymap('n', '<C-A-Down>', ')zz', { noremap = true, silent = true }),
-  -- vim.api.nvim_set_keymap('n', '<C-A-Up>', '(zz', { noremap = true, silent = true }),
-
-  -- set('n', '<CR><CR>', 'o<Esc>', { desc = 'Toggle visual-line' }),
-  -- set('n', '<CR><CR>', function()
-  --   if newLine == false then
-  --     print 'FIRST'
-  --     vim.cmd 'normal! o'
-  --   end
-  --   newLine = true
-  -- end, { noremap = true, desc = 'Toggle visual-line' }),
-  --
-  -- set('n', '<CR>', function()
-  --   print 'SIMPLE-CR'
-  --   if newLine then
-  --     print 'AFTER'
-  --     vim.cmd 'normal! o'
-  --   end
-  -- end, { noremap = true, desc = 'Toggle visual-line' }),
-
-  -- set('n', '<CR><CR>', function()
-  --   print 'Shift + Enter pressed' -- Debugging line
-  --   vim.cmd 'normal! o' -- New blank line below
-  --   -- Add your additional action here
-  -- end, { desc = 'New blank line below and additional action' }),
-
-  -- Word-wise visual selections
-  -- set('n', '<S-w>', 'vw', { desc = 'Select word forward' }),
-  -- set('n', '<S-W>', 'vW', { desc = 'Select WORD forward' }),
-  -- set('n', '<S-e>', 've', { desc = 'Select to end of word' }),
-  -- set('n', '<S-E>', 'vE', { desc = 'Select to end of WORD' }),
-  -- set('n', '<S-b>', 'vb', { desc = 'Select word backward' }),
-  -- set('n', '<S-B>', 'vB', { desc = 'Select WORD backward' }),
-
-  -- Continue word-wise visual selections
-  -- set('v', '<S-w>', 'w', { desc = 'Extend selection word forward' }),
-  -- set('v', '<S-W>', 'W', { desc = 'Extend selection WORD forward' }),
-  -- set('v', '<S-e>', 'e', { desc = 'Extend selection to word end' }),
-  -- set('v', '<S-E>', 'E', { desc = 'Extend selection to WORD end' }),
-  -- set('v', '<S-b>', 'b', { desc = 'Extend selection word backward' }),
-  -- set('v', '<S-B>', 'B', { desc = 'Extend selection WORD backward' }),
 }
