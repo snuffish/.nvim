@@ -12,6 +12,7 @@ local INSERT = {
 }
 
 local VISUAL = {
+  lineCursor = '#292E42',
   lineNr = '#BB9AF7',
 }
 
@@ -24,16 +25,15 @@ local MODE = {
 vim.api.nvim_set_hl(MODE.NORMAL, 'CursorLine', { bg = NORMAL.lineCursor })
 vim.api.nvim_set_hl(MODE.NORMAL, 'CursorLineNr', { reverse = true, bold = true, fg = NORMAL.lineNr })
 
-vim.api.nvim_set_hl(MODE.INSERT, 'CursorLineNr', { reverse = true, bold = true, fg = INSERT.lineNr })
 vim.api.nvim_set_hl(MODE.INSERT, 'CursorLine', { bg = INSERT.lineCursor })
+vim.api.nvim_set_hl(MODE.INSERT, 'CursorLineNr', { reverse = true, bold = true, fg = INSERT.lineNr })
 
+vim.api.nvim_set_hl(MODE.VISUAL, 'CursorLine', { bg = VISUAL.lineCursor })
 vim.api.nvim_set_hl(MODE.VISUAL, 'CursorLineNr', { reverse = true, bold = true, fg = VISUAL.lineNr })
 
 local setCurrentMode = function(mode)
   vim.api.nvim_set_hl_ns(mode)
 end
-
-setCurrentMode(MODE.NORMAL)
 
 vim.api.nvim_create_autocmd('ModeChanged', {
   callback = function()
@@ -42,9 +42,9 @@ vim.api.nvim_create_autocmd('ModeChanged', {
       setCurrentMode(MODE.VISUAL)
     elseif mode == 'i' then
       setCurrentMode(MODE.INSERT)
+    else
+      setCurrentMode(MODE.NORMAL)
     end
-
-    setCurrentMode(MODE.NORMAL)
   end,
 })
 
