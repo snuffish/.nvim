@@ -49,8 +49,8 @@ return { -- Fuzzy Finder (files, lsp, etc)
     set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
 
     set('n', { '<A-`>', '<leader><leader>`' }, '<C-6>', { noremap = true, silent = true, desc = 'Alternate file' })
-    set('n', { '<leader>sf', '<C-o>' }, builtin.find_files, { noremap = true, desc = '[S]earch [F]iles' })
-    set('n', { '<leader>sg', '<C-_>', '<C-g>' }, builtin.live_grep, { noremap = true, desc = '[S]earch by [G]rep' })
+    set('n', '<C-o>', builtin.find_files, { noremap = true, desc = '[S]earch [F]iles' })
+    set('n', '<leader>sg', builtin.live_grep, { noremap = true, desc = '[S]earch by [G]rep' })
     set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
     set('n', '<leader>sl', builtin.lsp_references, { desc = '[S]earch [L]SP References' })
 
