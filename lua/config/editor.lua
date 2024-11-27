@@ -48,6 +48,12 @@ vim.api.nvim_create_autocmd('ModeChanged', {
   end,
 })
 
+vim.api.nvim_create_autocmd('InsertLeave', {
+  callback = function()
+    vim.cmd 'w'
+  end,
+})
+
 return {
   set('n', '<C-a>', 'ggVG', { desc = 'Select all' }),
   set('n', '<CR>k', 'O<Esc>j', { noremap = true, desc = 'Add blank-line above cursor' }),

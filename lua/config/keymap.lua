@@ -8,7 +8,6 @@ return {
   set('n', '<A-j>', '}zz', { noremap = true, silent = true }),
   set('n', '<A-k>', '{zz', { noremap = true, silent = true }),
 
-  --set('nivc', '<C-z-q>', ':q<CR>', { noremap = true, desc = 'Quit' }),
   set('nv', '<C-p>', ':', { noremap = true, desc = 'Enter command mode' }),
   set('i', '<C-p>', '<Esc>:', { noremap = true, desc = 'Enter command mode' }),
 
@@ -20,7 +19,6 @@ return {
   set('i', { '<C-z>', '<D-z>' }, '<Esc>', { silent = true }),
 
   set('n', '<C-c>', 'i', { noremap = true, desc = 'Enter insert mode' }),
-  set('i', { '<C-c>', '<C-q>' }, '<Esc>', { noremap = true, desc = 'Exit insert mode' }),
 
   set('ni', '<C-y>', '<C-r>', { noremap = true, desc = 'Redo last change' }),
 
@@ -29,9 +27,6 @@ return {
   set('v', { '<C-c>', '<D-c>' }, 'y', { noremap = true, desc = 'Copy' }),
 
   set('ni', '<C-s>', '<cmd>w<CR><Esc>', { silent = true }),
-
-  set('n', '<C-q>', '<cmd>q<CR>', { silent = true, desc = 'Quit' }),
-  set('n', '<C-q>h', '<cmd>Explore<CR>', { silent = true, desc = 'Quit to explorer' }),
 
   -- Keep cursor centered when scrolling search results
   set('n', 'n', 'nzzzv', { desc = 'Next search result (centered)' }),
