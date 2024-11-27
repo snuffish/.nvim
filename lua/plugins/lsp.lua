@@ -59,7 +59,7 @@ return {
         vim.lsp.buf.references()
       end, vim.tbl_deep_extend('force', opts, { desc = 'LSP References' }))
 
-      set('n', { '<leader>vrn', 'gr' }, function()
+      set('n', { '<leader>vrn', 'gR' }, function()
         vim.lsp.buf.rename()
       end, vim.tbl_deep_extend('force', opts, { desc = 'LSP Rename' }))
 
@@ -88,7 +88,6 @@ return {
         'cucumber_language_server',
         'astro',
         'csharp_ls',
-        'gopls',
       },
       handlers = {
         lsp.default_setup,
