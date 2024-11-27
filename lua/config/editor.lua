@@ -22,8 +22,8 @@ local MODE = {
   VISUAL = 2,
 }
 
-vim.api.nvim_set_hl(MODE.NORMAL, 'CursorLine', { bg = NORMAL.lineCursor })
 vim.api.nvim_set_hl(MODE.NORMAL, 'CursorLineNr', { reverse = true, bold = true, fg = NORMAL.lineNr })
+vim.api.nvim_set_hl(MODE.NORMAL, 'CursorLine', { bg = NORMAL.lineCursor })
 
 vim.api.nvim_set_hl(MODE.INSERT, 'CursorLine', { bg = INSERT.lineCursor })
 vim.api.nvim_set_hl(MODE.INSERT, 'CursorLineNr', { reverse = true, bold = true, fg = INSERT.lineNr })
@@ -54,8 +54,8 @@ return {
   set('n', { '<CR>j', '<CR><CR>' }, 'o<Esc><k>', { noremap = true, desc = 'Add blank-line below cursor' }),
 
   -- Jump in editor
-  set('n', '<Pagek>', '<C-u>zz', { desc = 'Jump up 1/2-screen' }),
-  set('n', '<Pagej>', '<C-d>zz', { desc = 'Jump down 1/2-screen' }),
+  set('n', '<PageUp>', '<C-u>zz', { desc = 'Jump up 1/2-screen' }),
+  set('n', '<PageDown>', '<C-d>zz', { desc = 'Jump down 1/2-screen' }),
 
   -- Visual mode selections with Shift + Arrow keys
   set('n', '<S-k>', 'V<k>', { desc = 'Select line above' }),
@@ -77,6 +77,6 @@ return {
   set('n', '<C-k>', 'VdkP', { noremap = true, silent = true }),
   set('n', '<C-j>', 'VdjP', { noremap = true, silent = true }),
 
-  set('v', '<k>', ":m '<-2<CR>gv=gv'", { silent = true, desc = 'Move lines up' }),
-  set('v', 'j', ":m '>+1<CR>gv=gv'", { silent = true, desc = 'Move line down' }),
+  set('v', '<C-k>', ":m '<-2<CR>gv=gv'", { silent = true, desc = 'Move lines up' }),
+  set('v', '<C-j>', ":m '>+1<CR>gv=gv'", { silent = true, desc = 'Move line down' }),
 }
