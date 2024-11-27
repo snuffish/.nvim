@@ -1,5 +1,9 @@
 local utils = require 'utils'
-utils.set('n', 'lg', '<cmd>LazyGit<CR>', { noremap = true, desc = 'lazygit' })
+local set = utils.set
+
+set('n', 'lg', '<cmd>LazyGit<CR>', { noremap = true, desc = 'lazygit' })
+set('n', '<leader>sf', '<cmd>Telescope git_files<CR>', { noremap = true, desc = 'Git by [F]files' })
+set('n', '<leader>sc', '<cmd>Telescope git_commits<CR>', { noremap = true, desc = 'Git by [C]ommits' })
 
 return {
   'kdheepak/lazygit.nvim',
