@@ -1,8 +1,6 @@
 local utils = require 'utils'
 local set = utils.set
 
-set('nivc', '<F5>', '<cmd>source %<CR>', { silent = true })
-
 return {
   vim.api.nvim_set_keymap('n', '<C-A-k>', '(zz', { noremap = true, silent = true }),
   vim.api.nvim_set_keymap('n', '<C-A-j>', ')zz', { noremap = true, silent = true }),
@@ -10,7 +8,7 @@ return {
   set('n', '<A-j>', '}zz', { noremap = true, silent = true }),
   set('n', '<A-k>', '{zz', { noremap = true, silent = true }),
 
-  set('nivc', '<C-z-q>', ':q<CR>', { noremap = true, desc = 'Quit' }),
+  --set('nivc', '<C-z-q>', ':q<CR>', { noremap = true, desc = 'Quit' }),
   set('nv', '<C-p>', ':', { noremap = true, desc = 'Enter command mode' }),
   set('i', '<C-p>', '<Esc>:', { noremap = true, desc = 'Enter command mode' }),
 

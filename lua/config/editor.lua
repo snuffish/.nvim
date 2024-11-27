@@ -50,7 +50,7 @@ vim.api.nvim_create_autocmd('ModeChanged', {
 
 return {
   set('n', '<C-a>', 'ggVG', { desc = 'Select all' }),
-  set('n', '<CR><k>', 'O<Esc>j', { noremap = true, desc = 'Add blank-line above cursor' }),
+  set('n', '<CR>k', 'O<Esc>j', { noremap = true, desc = 'Add blank-line above cursor' }),
   set('n', { '<CR>j', '<CR><CR>' }, 'o<Esc><k>', { noremap = true, desc = 'Add blank-line below cursor' }),
 
   -- Jump in editor
@@ -58,15 +58,16 @@ return {
   set('n', '<PageDown>', '<C-d>zz', { desc = 'Jump down 1/2-screen' }),
 
   -- Visual mode selections with Shift + Arrow keys
-  set('n', '<S-k>', 'V<k>', { desc = 'Select line above' }),
+  set('n', '<S-k>', 'Vk', { desc = 'Select line above' }),
   set('n', '<S-j>', 'Vj', { desc = 'Select line below' }),
-  set('n', '<S-h>', 'v<h>', { desc = 'Select character left' }),
-  set('n', '<S-l>', 'v<l>', { desc = 'Select character right' }),
+  set('n', '<S-h>', 'vh', { desc = 'Select character left' }),
+  set('n', '<S-l>', 'vl', { desc = 'Select character right' }),
 
   -- Continue visual mode selection
-  set('v', '<S-k>', '<k>', { desc = 'Extend selection up' }),
+  set('v', '<S-k>', 'k', { desc = 'Extend selection up' }),
   set('v', '<S-j>', 'j', { desc = 'Extend selection down' }),
-  set('v', '<S-h>', '<h>', { desc = 'Extend selection left' }),
+  set('v', '<S-h>', 'h', { desc = 'Extend selection left' }),
+  set('v', '<S-l>', 'l', { desc = 'Extend selection left' }),
 
   -- Both visual mode & normal mode compatible
   set('nv', '<A-k>', '{zz', { silent = true, desc = 'Jump up 1 paragraph {}' }),
