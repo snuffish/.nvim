@@ -7,6 +7,6 @@ end
 
 return {
   set('n', { '<C-t>n', '<leader>tn' }, '<cmd>tabnew<CR>', { noremap = true, desc = 'New tab' }),
-  set('n', { '<C-t><Right>', '<leader>t<Right>' }, '<cmd>tabnext<CR>', { noremap = true, desc = 'Next tab' }),
-  set('n', { '<C-t><Left>', '<leader>t<Left>' }, '<cmd>tabprevious<CR>', { noremap = true, desc = 'Previous tab' }),
+  set('n', { '<C-t>l', '<leader>tl' }, '<cmd>tabnext<CR>', { noremap = true, desc = 'Next tab' }),
+  set('n', { '<C-t>h', '<leader>th' }, '<cmd>tabprevious<CR>', { noremap = true, desc = 'Previous tab' }),
 }

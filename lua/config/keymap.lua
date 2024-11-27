@@ -1,27 +1,22 @@
-local builtin = require 'telescope.builtin'
 local utils = require 'utils'
 local set = utils.set
 
+set('nivc', '<F5>', '<cmd>source %<CR>', { silent = true })
+
 return {
-  vim.api.nvim_set_keymap('n', '<C-A-Up>', '(zz', { noremap = true, silent = true }),
-  vim.api.nvim_set_keymap('n', '<C-A-Down>', ')zz', { noremap = true, silent = true }),
+  vim.api.nvim_set_keymap('n', '<C-A-k>', '(zz', { noremap = true, silent = true }),
+  vim.api.nvim_set_keymap('n', '<C-A-j>', ')zz', { noremap = true, silent = true }),
 
-  set('n', '<A-Down>', '}zz', { noremap = true, silent = true }),
-  set('n', '<A-Up>', '{zz', { noremap = true, silent = true }),
+  set('n', '<A-j>', '}zz', { noremap = true, silent = true }),
+  set('n', '<A-k>', '{zz', { noremap = true, silent = true }),
 
-  set('nivc', '<C-z-q>', ':q!<CR>', { noremap = true, desc = 'Quit' }),
+  set('nivc', '<C-z-q>', ':q<CR>', { noremap = true, desc = 'Quit' }),
   set('nv', '<C-p>', ':', { noremap = true, desc = 'Enter command mode' }),
   set('i', '<C-p>', '<Esc>:', { noremap = true, desc = 'Enter command mode' }),
 
   set('n', 'rr', '<Esc>:%s/', { noremap = true, desc = 'Regex string replace' }),
 
   set('ni', '<C-x>', '<Esc>:', { noremap = true, silent = true }),
-
-  set('n', '<leader>so', ':source Fummlar runt in-the-dark$MYVIMRC', { silent = true }),
-
-  --set('n', '<A-Down>', '<C-d>zz', { silent = true }),
-  --
-  --set('n', '<A-Up>', '<C-u>zz', { silent = true }),
 
   set('n', { '<C-z>', '<D-z>' }, '<cmd>u<CR>', { silent = true }),
   set('i', { '<C-z>', '<D-z>' }, '<Esc>', { silent = true }),
@@ -38,7 +33,7 @@ return {
   set('ni', '<C-s>', '<cmd>w<CR><Esc>', { silent = true }),
 
   set('n', '<C-q>', '<cmd>q<CR>', { silent = true, desc = 'Quit' }),
-  set('n', '<C-q><Left>', '<cmd>Explore<CR>', { silent = true, desc = 'Quit to explorer' }),
+  set('n', '<C-q>h', '<cmd>Explore<CR>', { silent = true, desc = 'Quit to explorer' }),
 
   -- Keep cursor centered when scrolling search results
   set('n', 'n', 'nzzzv', { desc = 'Next search result (centered)' }),

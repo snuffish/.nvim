@@ -35,7 +35,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
     pcall(require('telescope').load_extension, 'ui-select')
 
     -- See `:help telescope.builtin`
-    set('ni', '<C-l>', '<cmd>Lazy<CR>', { desc = 'Open Lazy' })
+    set('ni', '<F1>', '<cmd>Lazy<CR>', { desc = 'Open Lazy' })
     set('n', '<leader>`', '<cmd>Telescope buffers<CR>', {
         noremap = true,
         silent = true
