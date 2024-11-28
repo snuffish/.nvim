@@ -158,6 +158,8 @@ require('lazy').setup({
           PageUp = '<PageUp>',
         },
       },
+      spec = {
+        { '<leader>c', group = '[C]Code', mode = { 'n', 'x' } },
         { '<leader>d', group = '[D]ocument' },
         { '<leader>r', group = '[R]ename' },
         { '<leader>s', group = '[S]earch' },
