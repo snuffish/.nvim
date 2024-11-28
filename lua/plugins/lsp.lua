@@ -31,6 +31,8 @@ return {
     lsp.on_attach(function(client, bufnr)
       local opts = { buffer = bufnr, remap = false }
 
+      vim.keymap.set('n', '<F2>', '<cmd>Mason<CR>', { desc = 'Mason' })
+
       vim.keymap.set('n', 'gr', function()
         vim.lsp.buf.references()
       end, vim.tbl_deep_extend('force', opts, { desc = 'LSP Goto Reference' }))

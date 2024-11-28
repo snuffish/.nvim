@@ -48,20 +48,17 @@ vim.api.nvim_create_autocmd('ModeChanged', {
   end,
 })
 
--- m.api.nvim_create_autocmd('InsertLeave', {
---   callback = function()
---     vim.cmd 'w'
---   end,
--- })
-
 return {
   set('n', '<C-a>', 'ggVG', { desc = 'Select all' }),
-  set('n', '<CR>k', 'O<Esc>j', { noremap = true, desc = 'Add blank-line above cursor' }),
-  set('n', { '<CR>j', '<CR><CR>' }, 'o<Esc><k>', { noremap = true, desc = 'Add blank-line below cursor' }),
-
+  set('n', '<CR><CR>', 'o<Esc><Up>', { noremap = true, desc = 'Add blank-line below cursor' }),
   -- Jump in editor
   set('n', '<PageUp>', '<C-u>zz', { desc = 'Jump up 1/2-screen' }),
   set('n', '<PageDown>', '<C-d>zz', { desc = 'Jump down 1/2-screen' }),
+
+  set('i', { 'jj', 'kk' }, '<Esc>', { noremap = true, desc = 'Exit insert mode' }),
+
+  set('i', '<C-k>', '<Up>', { desc = 'Move cursor up in InsertMode' }),
+  set('i', '<C-j>', '<Down>', { desc = 'Move cursor down in InsertMode' }),
 
   -- Visual mode selections with Shift + Arrow keys
   set('n', '<S-k>', 'Vk', { desc = 'Select line above' }),
